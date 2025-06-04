@@ -7,12 +7,14 @@ export default defineConfig({
     plugins: [
         react(),
         VitePWA({
-            registerType: 'prompt',
+            includeAssets: ['**/*.{png}', '**/*.{jpg}'],
+
+            registerType: 'autoUpdate',
             injectRegister: false,
 
             pwaAssets: {
-                disabled: false,
                 config: true,
+                disabled: true,
             },
 
             manifest: {
@@ -20,7 +22,28 @@ export default defineConfig({
                 short_name: 'deckbound',
                 description:
                     'A fast and interactive card game built with React, TypeScript, Zustand, and Framer Motion — playable anywhere as a PWA.',
-                theme_color: '#ffffff',
+                theme_color: '#46B4AC',
+                background_color: '#46B4AC',
+                display: 'standalone',
+                orientation: 'landscape-primary',
+                icons: [
+                    {
+                        src: '/assets/favicons/192x192.png',
+                        sizes: '192x192',
+                        type: 'image/png',
+                    },
+                    {
+                        src: '/assets/favicons/256x256.png',
+                        sizes: '256x256',
+                        type: 'image/png',
+                    },
+                    {
+                        src: '/assets/favicons/512x512.png',
+                        sizes: '512x512',
+                        type: 'image/png',
+                        purpose: 'any maskable',
+                    },
+                ],
             },
 
             workbox: {
@@ -30,7 +53,7 @@ export default defineConfig({
             },
 
             devOptions: {
-                enabled: false,
+                enabled: true,
                 navigateFallback: 'index.html',
                 suppressWarnings: true,
                 type: 'module',
