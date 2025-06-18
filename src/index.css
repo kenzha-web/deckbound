@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -6,7 +10,7 @@
   color-scheme: light dark;
   color: #333;
   background-color: #4CB6AF;
-  background-image: url('/assets/bg.png');
+  background-image: url('public/assets/bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
