@@ -1,3 +1,31 @@
 .button {
-  @apply bg-primary;
+  @apply bg-gradient-to-t primary-gradient py-3 px-5 rounded-lg
+  text-[#D06E14] font-bold text-xl transition-all duration-300 ease-in-out;
+  box-shadow: -1px 3px 0 #b23909;
+
+  &:hover {
+    box-shadow: 0 2px 0 #b23909;
+  }
+
+  &.secondary {
+    @apply secondary-gradient text-[#FFB057];
+    box-shadow: -1px 3px 0 #642206;
+
+    &:hover {
+      box-shadow: 0 2px 0 #642206;
+    }
+  }
+
+  &.gray {
+    @apply gray-gradient text-gray-700;
+    box-shadow: -1px 3px 0 #434343;
+
+    &:hover {
+      box-shadow: 0 2px 0 #434343;
+    }
+  }
+
+  &.circle {
+    @apply rounded-full py-3 px-3;
+  }
 }
