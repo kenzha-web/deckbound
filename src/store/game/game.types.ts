@@ -8,7 +8,7 @@ export interface IGameCard extends ICard {
     isCanAttack: boolean;
 }
 
-interface IHero {
+export interface IHero {
     deck: IGameCard[];
     health: number;
     mana: number;
