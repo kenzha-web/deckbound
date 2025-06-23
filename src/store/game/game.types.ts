@@ -1,6 +1,6 @@
 import { ICard } from '../../types/card.types.ts';
 
-type TPlayer = 'player' | 'opponent';
+export type TPlayer = 'player' | 'opponent';
 
 export interface IGameCard extends ICard {
     id: number;
