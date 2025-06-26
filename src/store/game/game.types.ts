@@ -15,8 +15,8 @@ export interface IHero {
 }
 
 export interface IGameStore {
-    playerDeck: IHero;
-    opponentDeck: IHero;
+    player: IHero;
+    opponent: IHero;
     currentTurn: TPlayer;
     isGameOver: boolean;
     startGame: () => void;

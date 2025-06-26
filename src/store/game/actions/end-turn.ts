@@ -15,20 +15,20 @@ export const endTurnAction = (get: () => IGameStore): Partial<IGameStore> => {
 
     const newTurn: TPlayer = state.currentTurn === 'player' ? 'opponent' : 'player';
 
-    const newPlayerMana = getNewMana('player', state.playerDeck.mana);
-    const newOpponentMana = getNewMana('opponent', state.opponentDeck.mana);
+    const newPlayerMana = getNewMana('player', state.player.mana);
+    const newOpponentMana = getNewMana('opponent', state.opponent.mana);
 
     return {
         currentTurn: newTurn,
-        playerDeck: {
-            ...state.playerDeck,
+        player: {
+            ...state.player,
             mana: newPlayerMana,
-            deck: resetAttack(state.playerDeck.deck),
+            deck: resetAttack(state.player.deck),
         },
-        opponentDeck: {
-            ...state.opponentDeck,
+        opponent: {
+            ...state.opponent,
             mana: newOpponentMana,
-            deck: resetAttack(state.opponentDeck.deck),
+            deck: resetAttack(state.opponent.deck),
         },
     };
 };

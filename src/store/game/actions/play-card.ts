@@ -2,7 +2,7 @@ import type { IGameStore } from '../game.types.ts';
 
 export const playCardAction = (state: IGameStore, cardId: number): Partial<IGameStore> => {
     const isPlayerTurn = state.currentTurn === 'player';
-    const currentPlayer = isPlayerTurn ? state.playerDeck : state.opponentDeck;
+    const currentPlayer = isPlayerTurn ? state.player : state.opponent;
 
     const currentCard = currentPlayer.deck.find((card) => card.id === cardId);
 
@@ -11,5 +11,5 @@ export const playCardAction = (state: IGameStore, cardId: number): Partial<IGame
         currentPlayer.mana -= currentCard.mana;
     }
 
-    return isPlayerTurn ? { playerDeck: currentPlayer } : { opponentDeck: currentPlayer };
+    return isPlayerTurn ? { player: currentPlayer } : { opponent: currentPlayer };
 };
