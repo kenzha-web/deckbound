@@ -4,6 +4,7 @@ import { createDecK } from './create-dec.ts';
 import { endTurnAction } from './actions/end-turn.ts';
 import { playCardAction } from './actions/play-card.ts';
 import { attackCardAction } from './actions/attack-card.ts';
+import { attackHeroAction } from './actions/attack-hero.ts';
 
 const initialPlayerData: IHero = {
     deck: createDecK(),
@@ -11,7 +12,7 @@ const initialPlayerData: IHero = {
     mana: 1,
 };
 
-const initialGameData = {
+const initialGameData: Pick<IGameStore, 'player' | 'opponent' | 'currentTurn' | 'isGameOver'> = {
     player: initialPlayerData,
     opponent: initialPlayerData,
     currentTurn: 'player',
@@ -29,7 +30,7 @@ const useGameStore = create<IGameStore>((set, get) => ({
         set((state) => attackCardAction(state, attackerId, targetId));
     },
     attackHero: (attackerId: number) => {
-        set((state) => attackCardAction(state, attackerId));
+        set((state) => attackHeroAction(state, attackerId));
     },
 }));
 
