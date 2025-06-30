@@ -1,12 +1,11 @@
-import { Button } from '@/components/ui/button/Button.tsx';
+import { useGameStore } from '../../store/game/game.store.ts';
+import { GameBoard } from './board/GameBoard.tsx';
+import WelcomeScreen from './WelcomeScreen.tsx';
 
 function Home() {
-    return (
-        <>
-            <h1>START</h1>
-            <Button variant="primary">Start</Button>
-        </>
-    );
+    const { isGameStarted } = useGameStore();
+
+    return <main>{isGameStarted ? <GameBoard /> : <WelcomeScreen />}</main>;
 }
 
 export default Home;
